@@ -1,5 +1,5 @@
-let lat=-44.616667;
-let long =167.866667;
+let lat = -44.616667;
+let long = 167.866667;
 let zoom = 13;
 
 var map = L.map('map').setView([lat, long], zoom);
