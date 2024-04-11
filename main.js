@@ -8,6 +8,7 @@ let map = L.map('map', {
 });
 L.control.scale({imperial:false}).addTo(map);
 
+// Definieren von Name, ...
 let jsonPunkt = {
     "type": "Feature",
     "geometry": {
@@ -34,10 +35,12 @@ marker.bindPopup(`
         `).openPopup();
 */
         // zu zeile 11ff. --> JsonPunkt
-L.geoJSON(jsonPunkt, {
-    style: function (feature) {
-        return {color: feature.properties.color};
-    }
-}).bindPopup(function (layer) {
-    return layer.feature.properties.name;
+L.geoJSON(jsonPunkt, {}
+).bindPopup(function (layer) {
+    return `
+    <h2>${layer.feature.properties.name}</h2>
+    <ul>
+        <li>Breite: ${layer.feature.geometry.coordinates[1].toFixed(5)}</li>  
+        <li>Länge: ${layer.feature.geometry.coordinates[0].toFixed(5)}</li>
+    </ul>`;
 }).addTo(map);
