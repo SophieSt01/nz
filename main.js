@@ -9,5 +9,10 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 var marker = L.marker([lat, long]).addTo(map);
-marker.bindPopup(`<b>Milford Sound</b>`).openPopup();
+marker.bindPopup(`
+        <h2>Milford Sound</h2>
+        <ul>
+            <li>Breite: ${lat}</li>
+            <li>Länge: ${long}</li>
+        `).openPopup();
 
